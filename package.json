@@ -1,0 +1,22 @@
+{
+  "name": "go",
+  "version": "1.0.0",
+  "description": "A go game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lacker/go.git"
+  },
+  "keywords": [
+    "go"
+  ],
+  "author": "Kevin Lacker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lacker/go/issues"
+  },
+  "homepage": "https://github.com/lacker/go#readme"
+}
