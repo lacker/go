@@ -19,4 +19,8 @@ class Board {
       console.log(row);
     }
   }
+
+  set(i, j, color) {
+    this.board[i][j] = color;
+  }
 }
