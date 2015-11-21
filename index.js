@@ -23,4 +23,19 @@ class Board {
   set(i, j, color) {
     this.board[i][j] = color;
   }
+
+  // Returns whether the move was valid.
+  makeMove(i, j, color) {
+    if (this.board[i][j] != EMPTY) {
+      return false;
+    }
+
+    // TODO: prevent ko
+
+    this.set(i, j, color);
+
+    // TODO: check for captures
+
+    return true;
+  }
 }
