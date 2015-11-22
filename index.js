@@ -20,10 +20,6 @@ class Board {
     }
   }
 
-  set(i, j, color) {
-    this.board[i][j] = color;
-  }
-
   // Returns whether the move was valid.
   makeMove(i, j, color) {
     if (this.board[i][j] != EMPTY) {
@@ -32,7 +28,7 @@ class Board {
 
     // TODO: prevent ko
 
-    this.set(i, j, color);
+    this.board[i][j] = color;
 
     // TODO: check for captures
 
@@ -60,5 +56,42 @@ class Board {
       }
     }
     return answer;
+  }
+
+  // Finds the group of stones that contains the current spot.
+  // A group has two parameters:
+  //   spots: a list of the [i, j] spots involved
+  //   alive: a boolean
+  findGroup(i, j) {
+    let color = this.board[i][j];
+    if (color == EMPTY) {
+      throw 'no group for empty color';
+    }
+
+    // Contains strings of the form "i,j"
+    let seen = new Set();
+    let spots = [];
+    let alive = false;
+    let pending = [[i, j]];
+    while (pending.length > 0) {
+      let [a, b] = pending.pop();
+      let key = a + "," + b;
+      if (seen.has(key)) {
+        continue;
+      }
+      seen.add(key);
+      spots.push([a, b]);
+
+      for (let [c, d] of this.neighbors(a, b)) {
+        let neighborColor = this.board[c][d];
+        if (neighborColor == EMPTY) {
+          alive = true;
+        } else if (neighborColor == color) {
+          pending.push([c, d]);
+        }
+      }
+    }
+
+    return {spots, alive};
   }
 }
