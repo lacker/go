@@ -1,3 +1,5 @@
+'use strict';
+
 const BLACK = -1;
 const EMPTY = 0;
 const WHITE = 1;
@@ -47,10 +49,10 @@ class Board {
   // provided spot.
   neighbors(i, j) {
     let answer = [];
-    for ([a, b] of [[i + 1, j],
-                    [i - 1, j],
-                    [i, j + 1],
-                    [i, j - 1]]) {
+    for (let [a, b] of [[i + 1, j],
+                        [i - 1, j],
+                        [i, j + 1],
+                        [i, j - 1]]) {
       if (this.isValidSpot(a, b)) {
         answer.push([a, b]);
       }
@@ -95,3 +97,5 @@ class Board {
     return {spots, alive};
   }
 }
+
+module.exports = Board;
