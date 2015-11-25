@@ -5,7 +5,8 @@ const EMPTY = 0;
 const WHITE = 1;
 
 class Board {
-  construct(size) {
+  constructor(size) {
+    this.size = size;
     this.board = [];
     for (var i = 0; i < size; i++) {
       let row = [];
@@ -24,6 +25,9 @@ class Board {
 
   // Returns whether the move was valid.
   makeMove(i, j, color) {
+    if (!this.isValidSpot(i, j)) {
+      throw `invalid move because of invalid spot: ${i}, ${j}`
+    }
     if (this.board[i][j] != EMPTY) {
       return false;
     }
@@ -40,9 +44,9 @@ class Board {
   // Returns whether [i, j] is a valid spot on the board.
   isValidSpot(i, j) {
     return (i >= 0 &&
-            i < size &&
+            i < this.size &&
             j >= 0 &&
-            j < size);
+            j < this.size);
   }
 
   // Returns a list of [i, j] pairs for all valid neighbors to the
