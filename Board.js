@@ -36,7 +36,19 @@ class Board {
 
     this.board[i][j] = color;
 
-    // TODO: check for captures
+    // Check for captures
+    let captures = false;
+    for (let [a, b] of this.neighbors(i, j)) {
+      if (this.board[a][b] == -color) {
+        let {spots, alive} = this.findGroup(a, b);
+        if (!alive) {
+          captures = true;
+          for (let [c, d] of spots) {
+            this.board[c][d] = EMPTY;
+          }
+        }
+      }
+    }
 
     return true;
   }
