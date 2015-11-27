@@ -18,4 +18,12 @@ describe('Board', () => {
     board.makeMove(0, 1, BLACK);
     expect(board.findGroup(0, 0).spots.length).toEqual(2);
   });
+
+  it('handles captures', () => {
+    let board = new Board(2);
+    board.makeMove(0, 0, BLACK);
+    board.makeMove(0, 1, WHITE);
+    board.makeMove(1, 1, BLACK);
+    expect(board.board[0][1]).toEqual(EMPTY);
+  });
 });
