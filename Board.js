@@ -50,6 +50,15 @@ class Board {
       }
     }
 
+    // Prevent suicide
+    if (!captures) {
+      let {spots, alive} = this.findGroup(i, j);
+      if (!alive) {
+        this.board[i][j] = EMPTY;
+        return false;
+      }
+    }
+
     return true;
   }
 
