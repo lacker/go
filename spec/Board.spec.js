@@ -26,4 +26,11 @@ describe('Board', () => {
     board.makeMove(1, 1, BLACK);
     expect(board.board[0][1]).toEqual(EMPTY);
   });
+
+  it('prevents suicide', () => {
+    let board = new Board(2);
+    board.makeMove(0, 0, BLACK);
+    board.makeMove(1, 1, BLACK);
+    expect(board.makeMove(0, 1, WHITE)).toEqual(false);
+  });
 });
