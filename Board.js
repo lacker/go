@@ -62,6 +62,19 @@ class Board {
     return true;
   }
 
+  // Returns a value for the overall board
+  // Based on the Java hash function
+  hash() {
+    let answer = 0;
+    for (let i = 0; i < this.size; i++) {
+      for (let j = 0; j < this.size; j++) {
+        answer = ((answer << 5) - answer) + this.board[i][j];
+        answer |= 0; // convert to 32 bit int
+      }
+    }
+    return answer;
+  }
+
   // Returns whether [i, j] is a valid spot on the board.
   isValidSpot(i, j) {
     return (i >= 0 &&
