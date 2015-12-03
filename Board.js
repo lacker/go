@@ -8,6 +8,10 @@ class Board {
   constructor(size) {
     this.size = size;
     this.board = [];
+
+    // Hashes of every position there has been (after the first one)
+    this.hashes = new Set();
+
     for (var i = 0; i < size; i++) {
       let row = [];
       for (var j = 0; j < size; j++) {
@@ -31,8 +35,6 @@ class Board {
     if (this.board[i][j] != EMPTY) {
       return false;
     }
-
-    // TODO: prevent ko
 
     this.board[i][j] = color;
 
@@ -58,6 +60,13 @@ class Board {
         return false;
       }
     }
+
+    // Check for ko
+    let h = this.hash();
+    if (this.hashes.has(h)) {
+      throw 'ko';
+    }
+    this.hashes.add(h);
 
     return true;
   }
