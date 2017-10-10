@@ -145,4 +145,8 @@ class Board {
   }
 }
 
-module.exports = Board;
+Board.BLACK = BLACK;
+Board.WHITE = WHITE;
+Board.EMPTY = EMPTY;
+
+export default Board;
