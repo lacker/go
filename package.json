@@ -1,25 +1,16 @@
 {
   "name": "go",
-  "version": "1.0.0",
-  "description": "A go game",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "1.0.14"
+  },
   "scripts": {
-    "test": "node --harmony_destructuring ./node_modules/jasmine/bin/jasmine.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lacker/go.git"
-  },
-  "keywords": [
-    "go"
-  ],
-  "author": "Kevin Lacker",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lacker/go/issues"
-  },
-  "homepage": "https://github.com/lacker/go#readme",
-  "devDependencies": {
-    "jasmine": "^2.3.2"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
