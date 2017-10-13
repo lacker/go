@@ -11,6 +11,10 @@ function cell({color}) {
   return <div className="Cell" backgroundColor="#777777" />;
 }
 
+function row(items) {
+  return <div className="Row">{items}</div>;
+}
+
 class BoardView extends Component {
   render(props) {
     // TODO: expand props.grid
