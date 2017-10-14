@@ -18,6 +18,8 @@ function row(items) {
 class BoardView extends Component {
   render(props) {
     // TODO: expand props.grid
+    let rows = props.grid.map(row);
+    return <div className="Board">{rows}</div>;
   }
 }
 
