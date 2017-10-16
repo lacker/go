@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <BoardView grid={board.grid} />
+        <BoardView grid={this.board.grid} />
       </div>
     );
   }
