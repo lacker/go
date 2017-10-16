@@ -1,5 +1,3 @@
-'use strict';
-
 const BLACK = -1;
 const EMPTY = 0;
 const WHITE = 1;

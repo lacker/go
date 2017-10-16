@@ -12,7 +12,7 @@ function cell({color}) {
 }
 
 function row(items) {
-  return <div className="Row">{items}</div>;
+  return <div className="Row">{items.map(cell)}</div>;
 }
 
 class BoardView extends Component {
