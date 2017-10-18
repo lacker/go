@@ -28,7 +28,7 @@ class Board {
   // Returns whether the move was valid.
   makeMove(i, j, color) {
     if (!this.isValidSpot(i, j)) {
-      throw `invalid move because of invalid spot: ${i}, ${j}`
+      throw new Error(`invalid move because of invalid spot: ${i}, ${j}`);
     }
     if (this.board[i][j] != EMPTY) {
       return false;
