@@ -30,7 +30,7 @@ class Board {
     if (!this.isValidSpot(i, j)) {
       throw new Error(`invalid move because of invalid spot: ${i}, ${j}`);
     }
-    if (this.board[i][j] != EMPTY) {
+    if (this.board[i][j] !== EMPTY) {
       return false;
     }
 

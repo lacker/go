@@ -16,9 +16,9 @@ function row(items) {
 }
 
 class BoardView extends Component {
-  render(props) {
+  render() {
     // TODO: expand props.grid
-    let rows = props.grid.map(row);
+    let rows = this.props.grid.map(row);
     return <div className="Board">{rows}</div>;
   }
 }
