@@ -52,7 +52,7 @@ class Board {
 
     // Prevent suicide
     if (!captures) {
-      let {spots, alive} = this.findGroup(i, j);
+      let {alive} = this.findGroup(i, j);
       if (!alive) {
         this.board[i][j] = EMPTY;
         return false;
@@ -62,7 +62,7 @@ class Board {
     // Check for ko
     let h = this.hash();
     if (this.hashes.has(h)) {
-      throw 'ko';
+      throw new Error('ko');
     }
     this.hashes.add(h);
 
@@ -112,7 +112,7 @@ class Board {
   findGroup(i, j) {
     let color = this.board[i][j];
     if (color == EMPTY) {
-      throw 'no group for empty color';
+      throw new Error('no group for empty color');
     }
 
     // Contains strings of the form "i,j"
