@@ -39,7 +39,7 @@ class Board {
     // Check for captures
     let captures = false;
     for (let [a, b] of this.neighbors(i, j)) {
-      if (this.board[a][b] == -color) {
+      if (this.board[a][b] === -color) {
         let {spots, alive} = this.findGroup(a, b);
         if (!alive) {
           captures = true;
@@ -111,7 +111,7 @@ class Board {
   //   alive: a boolean
   findGroup(i, j) {
     let color = this.board[i][j];
-    if (color == EMPTY) {
+    if (color === EMPTY) {
       throw new Error('no group for empty color');
     }
 
@@ -131,9 +131,9 @@ class Board {
 
       for (let [c, d] of this.neighbors(a, b)) {
         let neighborColor = this.board[c][d];
-        if (neighborColor == EMPTY) {
+        if (neighborColor === EMPTY) {
           alive = true;
-        } else if (neighborColor == color) {
+        } else if (neighborColor === color) {
           pending.push([c, d]);
         }
       }
