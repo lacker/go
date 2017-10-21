@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 import Board from './Board';
 
+let styles = {
+  black: {
+    backgroundColor: "#000000",
+  },
+  white: {
+    backgroundColor: "#FFFFFF",
+  },
+  empty: {
+    backgroundColor: "#777777",
+  },
+}
+
 function cell({color}) {
   if (color === Board.BLACK) {
-    return <div className="Cell" backgroundColor="#000000" />;
+    return <div className="Cell" style={styles.black} />;
   }
   if (color === Board.WHITE) {
-    return <div className="Cell" backgroundColor="#FFFFFF" />;
+    return <div className="Cell" style={styles.white} />;
   }
-  return <div className="Cell" backgroundColor="#777777" />;
+  return <div className="Cell" style={styles.empty} />;
 }
 
 function row(items) {
