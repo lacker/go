@@ -1,45 +1,35 @@
 import React, { Component } from 'react';
 import Board from './Board';
 
-let cellStyle = {
-  height: 10,
-  width: 10,
-};
+// Pixels of a square
+const SIZE = 10;
 
-let styles = {
-  black: {
-    backgroundColor: "#000000",
-    ...cellStyle,
-  },
-  white: {
-    backgroundColor: "#FFFFFF",
-    ...cellStyle,
-  },
-  empty: {
-    backgroundColor: "#777777",
-    ...cellStyle,
-  },
-};
-
-function cell({color}) {
+function cell({color, x, y}) {
+  let h;
   if (color === Board.BLACK) {
-    return <div className="Cell" style={[styles.black, styles.cell]} />;
+    h = "#000000";
+  } else if (color === Board.WHITE) {
+    h = "#FFFFFF";
+  } else {
+    h = "#777777";
   }
-  if (color === Board.WHITE) {
-    return <div className="Cell" style={[styles.white, styles.cell]} />;
-  }
-  return <div className="Cell" style={[styles.empty, styles.cell]} />;
-}
-
-function row(items) {
-  return <div className="Row">{items.map(cell)}</div>;
+  return <div className="Cell" style={{
+    left: x * SIZE,
+    top: y * SIZE,
+    backgroundColor: h,
+  }}/>;
 }
 
 class BoardView extends Component {
   render() {
-    // TODO: expand props.grid
-    let rows = this.props.grid.map(row);
-    return <div className="Board">{rows}</div>;
+    let cells = [];
+    for (let y = 0; y < this.props.grid.length; y++) {
+      for (let x = 0; x < this.props.grid[y].length; x++) {
+        let color = this.props.grid[y][x];
+        cells.push(cell({color, x, y}));
+      }
+    }
+    return <div className="Board">{cells}</div>;
   }
 }
 

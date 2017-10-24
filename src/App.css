@@ -2,8 +2,10 @@
   text-align: center;
 }
 
-.Row {
+.Board {
 }
 
 .Cell {
+  height: 10px;
+  width: 10px;
 }
