@@ -13,7 +13,10 @@ function cell({color, x, y, onClick}) {
   } else {
     h = "#777777";
   }
-  return <div className="Cell" onClick={{onClick}} style={{
+  return <div className="Cell"
+              onClick={{onClick}}
+              key={'' + x + '-' + y}
+              style={{
     left: x * SIZE,
     top: y * SIZE,
     backgroundColor: h,
