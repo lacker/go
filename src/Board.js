@@ -6,6 +6,7 @@ class Board {
   constructor(size) {
     this.size = size;
     this.board = [];
+    this.toMove = BLACK;
 
     // Hashes of every position there has been (after the first one)
     this.hashes = new Set();
@@ -26,7 +27,7 @@ class Board {
   }
 
   // Returns whether the move was valid.
-  makeMove(i, j, color) {
+  makeMove(i, j) {
     if (!this.isValidSpot(i, j)) {
       throw new Error(`invalid move because of invalid spot: ${i}, ${j}`);
     }
@@ -34,6 +35,8 @@ class Board {
       return false;
     }
 
+    let color = this.toMove;
+    this.toMove = -this.toMove;
     this.board[i][j] = color;
 
     // Check for captures
