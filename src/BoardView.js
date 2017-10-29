@@ -14,7 +14,7 @@ function cell({color, x, y, onClick}) {
     h = "#777777";
   }
   return <div className="Cell"
-              onClick={onClick}
+              onClick={() => onClick(x, y)}
               key={'' + x + '-' + y}
               style={{
     left: x * SIZE,
@@ -24,15 +24,21 @@ function cell({color, x, y, onClick}) {
 }
 
 class BoardView extends Component {
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(x, y) {
+    console.log('click on ' + x + ', ' + y);
+  }
+
   render() {
     let cells = [];
     for (let y = 0; y < this.props.grid.length; y++) {
       for (let x = 0; x < this.props.grid[y].length; x++) {
         let color = this.props.grid[y][x];
-        let onClick = (x, y) => {
-          console.log('click on ' + x + ' ' + y);
-        }(x, y);
-        cells.push(cell({color, x, y, onClick}));
+        cells.push(cell({color, x, y, onClick: this.onClick}));
       }
     }
     return <div className="Board">{cells}</div>;
