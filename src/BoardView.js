@@ -29,9 +29,9 @@ class BoardView extends Component {
     for (let y = 0; y < this.props.grid.length; y++) {
       for (let x = 0; x < this.props.grid[y].length; x++) {
         let color = this.props.grid[y][x];
-        let onClick = () => {
-          console.log('click!');
-        };
+        let onClick = (x, y) => {
+          console.log('click on ' + x + ' ' + y);
+        }(x, y);
         cells.push(cell({color, x, y, onClick}));
       }
     }
