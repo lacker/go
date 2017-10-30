@@ -28,6 +28,9 @@ class Board {
 
   // Returns whether the move was valid.
   makeMove(i, j) {
+    let initialBoard = JSON.encde(this.board);
+    // TODO: use it
+
     if (!this.isValidSpot(i, j)) {
       throw new Error(`invalid move because of invalid spot: ${i}, ${j}`);
     }
