@@ -34,10 +34,11 @@ class BoardView extends Component {
   }
 
   render() {
+    let grid = this.props.board.grid;
     let cells = [];
-    for (let y = 0; y < this.props.grid.length; y++) {
-      for (let x = 0; x < this.props.grid[y].length; x++) {
-        let color = this.props.grid[y][x];
+    for (let y = 0; y < grid.length; y++) {
+      for (let x = 0; x < grid[y].length; x++) {
+        let color = grid[y][x];
         cells.push(cell({color, x, y, onClick: this.onClick}));
       }
     }
