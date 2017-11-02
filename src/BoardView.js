@@ -31,6 +31,10 @@ class BoardView extends Component {
 
   onClick(x, y) {
     console.log('click on ' + x + ', ' + y);
+    this.props.board.makeMove(x, y);
+
+    // Should be a better way to do this
+    this.setState({});
   }
 
   render() {
