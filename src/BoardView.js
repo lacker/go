@@ -38,7 +38,7 @@ class BoardView extends Component {
   }
 
   render() {
-    let grid = this.props.board.grid;
+    let grid = this.props.board.board;
     let cells = [];
     for (let y = 0; y < grid.length; y++) {
       for (let x = 0; x < grid[y].length; x++) {
