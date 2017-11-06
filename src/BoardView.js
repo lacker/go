@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Board from './Board';
 
 // Pixels of a square
-const SIZE = 10;
+// Needs to also reflect App.css
+const SIZE = 100;
 
 function cell({color, x, y, onClick}) {
   let h;
