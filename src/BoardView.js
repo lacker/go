@@ -42,7 +42,7 @@ class BoardView extends Component {
     let cells = [];
     for (let y = 0; y < grid.length; y++) {
       for (let x = 0; x < grid[y].length; x++) {
-        let color = grid[y][x];
+        let color = grid[x][y];
         cells.push(cell({color, x, y, onClick: this.onClick}));
       }
     }
