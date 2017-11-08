@@ -20,6 +20,8 @@ function cell({color, x, y, onClick}) {
               style={{
     left: x * SIZE,
     top: y * SIZE,
+    height: '' + SIZE + 'px',
+    width: '' + SIZE + 'px',
     backgroundColor: h,
   }}/>;
 }
