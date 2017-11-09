@@ -26,6 +26,15 @@ class Board {
     }
   }
 
+  // Returns the number of liberties for the group with the stone at i, j.
+  liberties(i, j) {
+    if (this.board[i][j] === EMPTY) {
+      return -1;
+    }
+    let frontier = new Set();
+    // TODO
+  }
+
   // Returns whether the move was valid.
   makeMove(i, j) {
     let initialBoard = JSON.stringify(this.board);
