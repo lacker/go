@@ -32,7 +32,9 @@ class Board {
       return -1;
     }
     let frontier = new Set();
-    // TODO
+    let keyer = (x, y) => {
+      return '' + x + ',' + y;
+    };
   }
 
   // Returns whether the move was valid.
