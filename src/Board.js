@@ -35,6 +35,7 @@ class Board {
     let keyer = (x, y) => {
       return '' + x + ',' + y;
     };
+    frontier.add(keyer(i, j));
   }
 
   // Returns whether the move was valid.
