@@ -26,6 +26,24 @@ class Board {
     }
   }
 
+  // Returns a list of stuff adjacent to i, j
+  adjacent(i, j) {
+    let answer = [];
+    if (i > 0) {
+      answer.push([i - 1, j]);
+    }
+    if (j > 0) {
+      answer.push([i, j - 1]);
+    }
+    if (i + 1 < this.size) {
+      answer.push([i + i, j]);
+    }
+    if (j + 1 < this.size) {
+      answer.push([i, j + 1]);
+    }
+    return answer;
+  }
+
   // Returns the number of liberties for the group with the stone at i, j.
   liberties(i, j) {
     if (this.board[i][j] === EMPTY) {
