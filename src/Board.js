@@ -49,11 +49,14 @@ class Board {
     if (this.board[i][j] === EMPTY) {
       return -1;
     }
-    let frontier = new Set();
+    let seen = new Set();
     let keyer = (x, y) => {
       return '' + x + ',' + y;
     };
-    frontier.add(keyer(i, j));
+    let frontier = [[i, j]];
+    while (frontier.length > 0) {
+      // TODO
+    }
   }
 
   // Returns whether the move was valid.
