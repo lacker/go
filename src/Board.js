@@ -55,8 +55,15 @@ class Board {
     };
     let frontier = [[i, j]];
     while (frontier.length > 0) {
+      let [x, y] = frontier.pop();
+      let key = keyer(x, y);
+      if (seen.has(key)) {
+        continue;
+      }
+      let adj = this.adjacent(x, y);
       // TODO
     }
+    // TODO
   }
 
   // Returns whether the move was valid.
