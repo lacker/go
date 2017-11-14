@@ -50,18 +50,21 @@ class Board {
       return -1;
     }
     let seen = new Set();
+    let libs = new Set();
     let keyer = (x, y) => {
       return '' + x + ',' + y;
     };
     let frontier = [[i, j]];
     while (frontier.length > 0) {
-      let [x, y] = frontier.pop();
-      let key = keyer(x, y);
-      if (seen.has(key)) {
+      let [x1, y1] = frontier.pop();
+      let key1 = keyer(x1, y1);
+      if (seen.has(key1)) {
         continue;
       }
       let adj = this.adjacent(x, y);
-      // TODO
+      for (let [x2, y2] of adj) {
+        // TODO
+      }
     }
     // TODO
   }
