@@ -44,7 +44,7 @@ class Board {
     return answer;
   }
 
-  // Returns the number of liberties for the group with the stone at i, j.
+  // Returns the set of liberties for the group with the stone at i, j.
   liberties(i, j) {
     if (this.board[i][j] === EMPTY) {
       return -1;
