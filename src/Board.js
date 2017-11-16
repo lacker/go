@@ -1,3 +1,5 @@
+import SpotSet from './SpotSet';
+
 const BLACK = -1;
 const EMPTY = 0;
 const WHITE = 1;
@@ -44,24 +46,20 @@ class Board {
     return answer;
   }
 
-  // Returns the set of liberties for the group with the stone at i, j.
+  // Returns a spotset of liberties for the group with the stone at i, j.
   liberties(i, j) {
     if (this.board[i][j] === EMPTY) {
       return -1;
     }
-    let seen = new Set();
-    let libs = new Set();
-    let keyer = (x, y) => {
-      return '' + x + ',' + y;
-    };
+    let seen = new SpotSet();
+    let libs = new SpotSet();
     let frontier = [[i, j]];
     while (frontier.length > 0) {
       let [x1, y1] = frontier.pop();
-      let key1 = keyer(x1, y1);
-      if (seen.has(key1)) {
+      if (seen.has(x1, y1)) {
         continue;
       }
-      let adj = this.adjacent(x, y);
+      let adj = this.adjacent(x1, y1);
       for (let [x2, y2] of adj) {
         // TODO
       }
