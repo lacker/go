@@ -47,6 +47,7 @@ class Board {
   }
 
   // Returns a spotset of liberties for the group with the stone at i, j.
+  // TODO: test
   liberties(i, j) {
     if (this.board[i][j] === EMPTY) {
       return -1;
@@ -59,12 +60,18 @@ class Board {
       if (seen.has(x1, y1)) {
         continue;
       }
+      seen.add(x1, y1);
       let adj = this.adjacent(x1, y1);
       for (let [x2, y2] of adj) {
-        // TODO
+        if (this.board[x2][y2] === EMPTY) {
+          libs.add(x2, y2);
+        }
+        if (this.board[x2][y2] === this.board[i][j]) {
+          frontier.push([x2, y2])
+        }
       }
     }
-    // TODO
+    return libs;
   }
 
   // Returns whether the move was valid.
