@@ -47,7 +47,6 @@ class Board {
   }
 
   // Returns a spotset of liberties for the group with the stone at i, j.
-  // TODO: test
   liberties(i, j) {
     if (this.board[i][j] === EMPTY) {
       return -1;
