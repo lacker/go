@@ -9,6 +9,7 @@ describe('Board', () => {
     let b = new Board(9);
     b.makeMove(4, 4);
     let s = b.liberties(4, 4);
+    console.log(s);
     expect(s.has(4, 5)).toBeTruthy();
     expect(s.has(4, 3)).toBeTruthy();
     expect(s.has(3, 4)).toBeTruthy();

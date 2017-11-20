@@ -38,7 +38,7 @@ class Board {
       answer.push([i, j - 1]);
     }
     if (i + 1 < this.size) {
-      answer.push([i + i, j]);
+      answer.push([i + 1, j]);
     }
     if (j + 1 < this.size) {
       answer.push([i, j + 1]);
