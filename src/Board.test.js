@@ -16,4 +16,15 @@ describe('Board', () => {
     expect(s.has(5, 4)).toBeTruthy();
     expect(s.size()).toBe(4);
   });
+
+  it('should work with a capture', () => {
+    let b = new Board(9);
+    b.makeMove(0, 1);
+    b.makeMove(0, 0);
+    b.makeMove(1, 1);
+    b.makeMove(1, 0);
+    expect(b.liberties(0, 0).size).toBe(1);
+    b.makeMove(2, 0);
+    expect(b.liberties(2, 0).size).toBe(3);
+  })
 });
