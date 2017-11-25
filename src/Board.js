@@ -73,6 +73,26 @@ class Board {
     return libs;
   }
 
+  // Figure out a decent move to make
+  goodMove() {
+    // Just move randomly
+    let bestScore = -1;
+    let bestMove = [-1, -1];
+    for (let i = 0; i < this.size; i++) {
+      for (let j = 0; j < this.size; j++) {
+        let score = -2;
+        if (this.board[i][j] === EMPTY) {
+          score = Math.random() * 0.01;
+        }
+        if (score > bestScore) {
+          bestScore = score;
+          bestMove = [i, j];
+        }
+      }
+    }
+    return bestMove;
+  }
+
   // Returns whether the move was valid.
   makeMove(i, j) {
     let initialBoard = JSON.stringify(this.board);
