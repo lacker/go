@@ -75,7 +75,7 @@ class Board {
 
   // Figure out a decent move to make
   goodMove() {
-    // Just move randomly
+    // Default to moving randomly
     let bestScore = -1;
     let bestMove = [-1, -1];
     for (let i = 0; i < this.size; i++) {
@@ -83,6 +83,12 @@ class Board {
         let score = -2;
         if (this.board[i][j] === EMPTY) {
           score = Math.random() * 0.01;
+        } else {
+          // Look for captures and escapes
+          let libs = this.liberties(i, j);
+          if (libs.size() === 1) {
+            // TODO: get the liberty
+          }
         }
         if (score > bestScore) {
           bestScore = score;
