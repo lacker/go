@@ -36,6 +36,10 @@ class BoardView extends Component {
     console.log('click on ' + x + ', ' + y);
     this.props.board.makeMove(x, y);
 
+    // Make the opponent's move too
+    let [i, j] = this.props.board.goodMove();
+    this.props.board.makeMove(i, j);
+
     // Should be a better way to do this
     this.setState({});
   }
