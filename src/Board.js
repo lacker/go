@@ -87,7 +87,7 @@ class Board {
           // Look for captures and escapes
           let libs = this.liberties(i, j);
           if (libs.size() === 1) {
-            // TODO: get the liberty
+            // Extract spot from x,y form
           }
         }
         if (score > bestScore) {

@@ -1,6 +1,6 @@
 class SpotSet {
   constructor() {
-    this.spots = new Set();
+    this._spots = new Set();
   }
 
   key(x, y) {
@@ -8,15 +8,20 @@ class SpotSet {
   }
 
   add(x, y) {
-    this.spots.add(this.key(x, y));
+    this._spots.add(this.key(x, y));
   }
 
   has(x, y) {
-    return this.spots.has(this.key(x, y));
+    return this._spots.has(this.key(x, y));
   }
 
   size() {
-    return this.spots.size;
+    return this._spots.size;
+  }
+
+  // Iterable
+  spots() {
+    return this._spots.keys();
   }
 }
 
